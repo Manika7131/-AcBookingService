@@ -1,0 +1,306 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* ----------------------------- */
+/* 🌈 CSS Variables              */
+/* ----------------------------- */
+:root {
+  --primary: #0099FF;
+  --primary-light: #33B2FF;
+  --primary-dark: #007ACC;
+  --secondary: #001064;
+  --muted: #6b7280;
+  --book-complaint: #001064; /* Dark blue for Book Complaints */
+}
+
+/* ----------------------------- */
+/* ⚡ Base Layout & Reset        */
+/* ----------------------------- */
+html, body, #__next {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background-color: #ffffff;
+  color: #0f172a;
+}
+
+/* ----------------------------- */
+/* ⚡ Header / Navigation        */
+/* ----------------------------- */
+.nav-link {
+  transition: color 0.2s ease;
+}
+
+/* ----------------------------- */
+/* ⚡ Glass Card                 */
+/* ----------------------------- */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+/* ----------------------------- */
+/* ⚡ Buttons                    */
+/* ----------------------------- */
+.btn-primary {
+  @apply inline-block px-5 py-3 rounded-md font-semibold text-white text-center;
+  background: var(--primary);
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  filter: brightness(0.95);
+}
+
+/* Book Complaints Button */
+.btn-book-complaints {
+  @apply inline-block px-5 py-3 rounded-md font-semibold text-white text-center;
+  background: var(--book-complaint);
+  transition: all 0.2s ease;
+}
+
+.btn-book-complaints:hover {
+  filter: brightness(1.1);
+}
+
+/* ----------------------------- */
+/* ⚡ Containers                 */
+/* ----------------------------- */
+.container-xxl {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* ----------------------------- */
+/* ⚡ Typography                 */
+/* ----------------------------- */
+.text-muted {
+  color: var(--muted);
+}
+
+/* ----------------------------- */
+/* ⚡ Hero Section Fallback      */
+/* ----------------------------- */
+.hero-min-h {
+  min-height: 64vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+/* ----------------------------- */
+/* ⚡ Styled Gradient Button     */
+/* ----------------------------- */
+.styled-button {
+  position: relative;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #ffffff;
+  background: linear-gradient(to bottom, var(--primary-light), var(--primary-dark));
+  border-radius: 9999px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 153, 255, 0.6), 0 10px 20px rgba(0, 153, 255, 0.3);
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--primary-dark);
+  text-decoration: none;
+}
+
+.styled-button::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  right: -1px;
+  bottom: -1px;
+  left: -1px;
+  background: linear-gradient(to bottom, var(--primary), var(--primary-dark));
+  z-index: -1;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+}
+
+.styled-button:hover {
+  filter: brightness(1.05);
+}
+
+.styled-button:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 2px rgba(0, 153, 255, 0.6), 0 5px 10px rgba(0, 153, 255, 0.3);
+}
+
+.styled-button .inner-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, var(--primary-light), var(--primary-dark));
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+  border-radius: 50%;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--primary-dark);
+  transition: all 0.2s ease;
+}
+
+.styled-button .inner-button .icon {
+  color: #fff;
+  filter: drop-shadow(0 4px 10px rgba(0, 153, 255, 0.7))
+          drop-shadow(0 0 6px rgba(0, 153, 255, 0.9));
+  transition: all 0.4s ease-in-out;
+}
+
+.styled-button .inner-button .icon:hover {
+  transform: rotate(-35deg);
+}
+
+/* ----------------------------- */
+/* ⚡ Responsive Media Queries   */
+/* ----------------------------- */
+@media (max-width: 1024px) {
+  .hero-min-h {
+    min-height: 50vh;
+  }
+
+  .styled-button {
+    padding: 0.9rem 1.8rem;
+    font-size: 1rem;
+  }
+
+  .styled-button .inner-button {
+    width: 36px;
+    height: 36px;
+    margin-left: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-min-h {
+    min-height: 45vh;
+    padding: 1.5rem 1rem;
+  }
+
+  .container-xxl {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .btn-primary,
+  .btn-book-complaints {
+    width: 100%;
+    text-align: center;
+    padding: 0.8rem 1rem;
+  }
+
+  .styled-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .styled-button .inner-button {
+    width: 32px;
+    height: 32px;
+    margin-left: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-min-h {
+    min-height: 40vh;
+    padding: 1rem 0.5rem;
+  }
+
+  .btn-primary,
+  .btn-book-complaints {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .styled-button {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .styled-button .inner-button {
+    width: 28px;
+    height: 28px;
+    margin-left: 5px;
+  }
+}
+
+/* Smooth hover color change for nav items */
+.nav-item {
+  transition: color 0.3s ease;
+}
+
+.nav-item:hover {
+  color: #003366; /* Dark blue on hover */
+}
+
+/* Optional: add underline animation on hover */
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #003366;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.nav-item:hover::after {
+  width: 100%;
+}
+
+
+/* Smooth animated hover effect for nav links */
+.nav-item {
+  position: relative;
+  font-weight: 600;
+  color: #374151; /* gray-700 */
+  transition: color 0.3s ease;
+}
+
+.nav-item::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: #023581;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.nav-item:hover {
+  color: #023581;
+}
+
+.nav-item:hover::after {
+  width: 100%;
+}
+
+.mobile-menu {
+  transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
+  overflow: hidden;
+}
