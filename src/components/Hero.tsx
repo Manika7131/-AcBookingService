@@ -1,6 +1,11 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion, MotionProps } from "framer-motion";
+import { HTMLAttributes } from "react";
 import { FaArrowRight } from "react-icons/fa";
+
+// ✅ Combine HTML and Motion props
+type MotionDivProps = HTMLAttributes<HTMLDivElement> & MotionProps;
+const MotionDiv = (props: MotionDivProps) => <motion.div {...props} />;
 
 export default function Hero() {
   return (
@@ -20,19 +25,17 @@ export default function Hero() {
           className="w-full h-full object-cover object-center select-none"
           draggable="false"
         />
-        {/* Overlay */}
         <div className="absolute inset-0 bg-black/50" />
       </div>
 
       {/* Centered Content */}
       <div className="relative w-full h-full flex items-center justify-center text-center px-4 sm:px-8">
-        <motion.div
+        <MotionDiv
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="max-w-3xl text-white"
         >
-          {/* Heading */}
           <h1
             className="font-bold leading-tight select-none"
             style={{
@@ -42,7 +45,6 @@ export default function Hero() {
             Professional AC Installation & Repair
           </h1>
 
-          {/* Paragraph */}
           <p
             className="mt-3 sm:mt-5 text-white/90 mx-auto max-w-2xl select-none"
             style={{
@@ -55,9 +57,7 @@ export default function Hero() {
             support. Your comfort, our priority!
           </p>
 
-          {/* Buttons */}
           <div className="mt-6 flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4">
-            {/* Primary Button */}
             <a
               href="/quote"
               className="inline-flex items-center justify-center text-white font-semibold rounded-md w-full sm:w-auto px-5 py-3 text-sm sm:text-base transition-shadow shadow-md select-none"
@@ -71,18 +71,17 @@ export default function Hero() {
               <FaArrowRight className="ml-2 text-sm sm:text-base pointer-events-none" />
             </a>
 
-            {/* Secondary Button */}
             <a
               href="/services"
               className="inline-flex items-center justify-center w-full sm:w-auto px-5 py-3 rounded-md text-gray-800 font-semibold text-sm sm:text-base transition shadow-md select-none"
               style={{
-                backgroundColor: "#ffffff", // Button background set to white
+                backgroundColor: "#ffffff",
               }}
             >
               Our Services
             </a>
           </div>
-        </motion.div>
+        </MotionDiv>
       </div>
     </section>
   );

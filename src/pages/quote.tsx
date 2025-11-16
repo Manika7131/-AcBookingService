@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ContactForm from "@/components/ContactForm";
+
 import ScrollToTop from "@/components/ScrollToTop";
 
 export default function QuotePage() {
@@ -19,9 +19,7 @@ export default function QuotePage() {
             <h3 className="text-2xl font-bold">Tell us about your requirement</h3>
             <p className="text-muted mt-3">We will call you back with a competitive quote.</p>
           </div>
-          <div>
-            <ContactForm />
-          </div>
+       
         </div>
       </main>
 

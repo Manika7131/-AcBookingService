@@ -1,7 +1,12 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion, MotionProps } from "framer-motion";
+import { HTMLAttributes } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+
+// ✅ Typed wrapper for motion.section
+type MotionSectionProps = HTMLAttributes<HTMLElement> & MotionProps;
+const MotionSection = (props: MotionSectionProps) => <motion.section {...props} />;
 
 export default function PrivacyPage() {
   const sections = [
@@ -12,17 +17,17 @@ export default function PrivacyPage() {
     {
       title: "2. Information We Collect",
       text: `We may collect the following types of information:
-      • Personal details such as name, email address, phone number, and address (when booking a service).
-      • Technical details like IP address, browser type, and device information.
-      • Any additional data you voluntarily provide through forms or feedback.`,
+• Personal details such as name, email address, phone number, and address (when booking a service).
+• Technical details like IP address, browser type, and device information.
+• Any additional data you voluntarily provide through forms or feedback.`,
     },
     {
       title: "3. How We Use Your Information",
       text: `We use your information to:
-      • Confirm and manage your AC service bookings.
-      • Communicate important updates or offers.
-      • Improve our website and customer experience.
-      • Respond to your inquiries and support requests.`,
+• Confirm and manage your AC service bookings.
+• Communicate important updates or offers.
+• Improve our website and customer experience.
+• Respond to your inquiries and support requests.`,
     },
     {
       title: "4. Data Protection & Security",
@@ -51,8 +56,8 @@ export default function PrivacyPage() {
     {
       title: "10. Contact Us",
       text: `If you have questions about this Privacy Policy or how we handle your data, please contact us:
-      📩 Email: support@skracbooking.com
-      📞 Phone: +91 88384 85805`,
+📩 Email: support@skracbooking.com
+📞 Phone: +91 88384 85805`,
     },
   ];
 
@@ -66,15 +71,13 @@ export default function PrivacyPage() {
         style={{ backgroundColor: "#59677c" }}
       >
         <h1 className="text-3xl font-bold">Privacy Policy</h1>
-        <p className="text-gray-200 mt-2 text-sm">
-          Last updated: October 2025
-        </p>
+        <p className="text-gray-200 mt-2 text-sm">Last updated: October 2025</p>
       </header>
 
       {/* Main - Full Width */}
       <main className="bg-gray-50 py-16">
         {sections.map((section, i) => (
-          <motion.section
+          <MotionSection
             key={i}
             className="px-6 md:px-16 lg:px-32 py-8 border-b border-gray-200 bg-white"
             initial={{ opacity: 0, y: 30 }}
@@ -88,7 +91,7 @@ export default function PrivacyPage() {
             <p className="text-gray-700 leading-relaxed whitespace-pre-line">
               {section.text}
             </p>
-          </motion.section>
+          </MotionSection>
         ))}
       </main>
 
