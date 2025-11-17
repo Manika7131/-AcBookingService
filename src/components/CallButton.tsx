@@ -1,12 +1,9 @@
-// src/components/CallButton.tsx
-"use client";
-
-import Link from "next/link";
+import { JSX } from "react";
 import { FaPhoneAlt } from "react-icons/fa";
 
-export default function CallButton() {
+export default function callbutton(): JSX.Element {
   return (
-    <Link
+    <a
       href="tel:+918838485805"
       aria-label="Call us"
       title="Call us"
@@ -19,6 +16,6 @@ export default function CallButton() {
       "
     >
       <FaPhoneAlt className="text-white text-2xl pointer-events-none" />
-    </Link>
+    </a>
   );
 }
