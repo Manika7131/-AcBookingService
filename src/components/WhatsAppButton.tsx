@@ -1,4 +1,6 @@
 // src/components/WhatsAppButton.tsx
+"use client";
+
 import { FaWhatsapp } from "react-icons/fa";
 
 export default function WhatsAppButton() {
@@ -7,8 +9,10 @@ export default function WhatsAppButton() {
       href="https://wa.me/918838485805"
       target="_blank"
       rel="noopener noreferrer"
+      aria-label="Chat on WhatsApp"
+      title="Chat on WhatsApp"
       className="
-        fixed bottom-6 right-6 z-[9999]
+        fixed bottom-24 right-6 z-[9999]
         w-16 h-16 rounded-full
         bg-[#25D366] flex items-center justify-center
         shadow-lg hover:shadow-2xl

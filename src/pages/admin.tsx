@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Swal from "sweetalert2";
 import { useRouter } from "next/router"; // ✅ Correct for Pages Router
 
+
 export default function AdminPage() {
   const router = useRouter();
   const [email, setEmail] = useState("");

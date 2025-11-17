@@ -4,6 +4,7 @@ import { HTMLAttributes } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+
 // ✅ Typed wrapper for motion.section
 type MotionSectionProps = HTMLAttributes<HTMLElement> & MotionProps;
 const MotionSection = (props: MotionSectionProps) => <motion.section {...props} />;

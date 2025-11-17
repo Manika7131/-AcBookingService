@@ -5,9 +5,11 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import { motion, MotionProps } from "framer-motion";
 import { HTMLAttributes, FormHTMLAttributes, useState } from "react";
-import Swal from "sweetalert2";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { format, parse } from "date-fns";
 
-// ✅ Wrapper components to fix TypeScript errors
+// Wrapper components
 type MotionDivProps = HTMLAttributes<HTMLDivElement> & MotionProps;
 const MotionDiv = (props: MotionDivProps) => <motion.div {...props} />;
 
@@ -24,6 +26,7 @@ export default function ContactPage() {
     message: "",
   });
 
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [loading, setLoading] = useState(false);
   const services = ["Installation", "Repair", "AMC", "Emergency Service"];
 
@@ -32,85 +35,81 @@ export default function ContactPage() {
       HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
     >
   ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+
+    if (name === "name") {
+      const onlyLetters = value.replace(/[0-9]/g, "");
+      setFormData({ ...formData, name: onlyLetters });
+    } else if (name === "phone") {
+      const onlyDigits = value.replace(/\D/g, "");
+      setFormData({ ...formData, phone: onlyDigits });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
+  };
+
+  // ✅ FIXED TYPE FOR onChangeRaw
+  const handleDateChangeRaw = (
+    event?: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>
+  ) => {
+    if (event) {
+      const input = (event.target as HTMLInputElement).value;
+      setFormData((prev) => ({ ...prev, date: input }));
+
+      if (/^\d{4}-\d{2}-\d{2}$/.test(input)) {
+        const parsed = parse(input, "yyyy-MM-dd", new Date());
+        if (!isNaN(parsed.getTime())) {
+          setSelectedDate(parsed);
+        }
+      }
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^\d+$/;
+    const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
+
     if (
       !formData.name ||
       !formData.email ||
+      !emailRegex.test(formData.email) ||
       !formData.phone ||
-      !formData.service
+      !phoneRegex.test(formData.phone) ||
+      !formData.service ||
+      (formData.date && !dateRegex.test(formData.date))
     ) {
-      Swal.fire({
-        icon: "warning",
-        title: "Missing Fields",
-        text: "Please fill out all required fields before submitting.",
-        confirmButtonColor: "#0a2857",
-      });
+      alert("Please fill out all required fields with valid data.");
       return;
     }
 
-    setLoading(true);
-    try {
-      const response = await fetch("http://localhost:8080/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+    const whatsappNumber = "918838485805";
+    const msgLines = [
+      "New AC Booking Request:",
+      `Name: ${formData.name}`,
+      `Phone: ${formData.phone}`,
+      `Email: ${formData.email}`,
+      `Service: ${formData.service}`,
+      formData.date ? `Date: ${formData.date}` : "",
+      formData.message ? `Message: ${formData.message}` : "",
+    ];
+    const msg = msgLines.filter(Boolean).join("\n");
+    const waUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`;
 
-      if (response.ok) {
-        Swal.fire({
-          icon: "success",
-          title: "Success!",
-          text: "Your request has been submitted successfully.",
-          confirmButtonColor: "#0a2857",
-        });
+    alert("Redirecting to WhatsApp...");
+    window.open(waUrl, "_blank");
 
-        const whatsappNumber = "919629188489";
-        const msgLines = [
-          "New AC Booking Request:",
-          `Name: ${formData.name}`,
-          `Phone: ${formData.phone}`,
-          `Email: ${formData.email}`,
-          `Service: ${formData.service}`,
-          formData.date ? `Date: ${formData.date}` : "",
-          formData.message ? `Message: ${formData.message}` : "",
-        ];
-        const msg = msgLines.filter(Boolean).join("\n");
-        const waUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`;
-        window.open(waUrl, "_blank");
-
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          service: "",
-          date: "",
-          message: "",
-        });
-      } else {
-        const err = await response.text();
-        Swal.fire({
-          icon: "error",
-          title: "Submission Failed",
-          text: err || "Something went wrong. Please try again later.",
-          confirmButtonColor: "#0a2857",
-        });
-      }
-    } catch (error) {
-      console.error("Error submitting contact form:", error);
-      Swal.fire({
-        icon: "error",
-        title: "Server Unreachable",
-        text: "Please ensure your backend is running on port 8080.",
-        confirmButtonColor: "#0a2857",
-      });
-    } finally {
-      setLoading(false);
-    }
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      service: "",
+      date: "",
+      message: "",
+    });
+    setSelectedDate(null);
   };
 
   return (
@@ -174,6 +173,7 @@ export default function ContactPage() {
               required
               className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-600 transition"
             />
+
             <input
               type="email"
               name="email"
@@ -181,17 +181,22 @@ export default function ContactPage() {
               value={formData.email}
               onChange={handleChange}
               required
+              pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
               className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-600 transition"
             />
+
             <input
-              type="tel"
+              type="text"
               name="phone"
               placeholder="Phone Number"
               value={formData.phone}
               onChange={handleChange}
               required
-              className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-600 transition"
+              inputMode="numeric"
+              className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-600 transition [appearance:textfield]"
+              style={{ MozAppearance: "textfield" }}
             />
+
             <select
               name="service"
               value={formData.service}
@@ -206,13 +211,25 @@ export default function ContactPage() {
                 </option>
               ))}
             </select>
-            <input
-              type="date"
-              name="date"
-              value={formData.date}
-              onChange={handleChange}
-              className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-600 transition"
+
+            <DatePicker
+              selected={selectedDate}
+              onChange={(date: Date | null) => {
+                setSelectedDate(date);
+                setFormData({
+                  ...formData,
+                  date: date ? format(date, "yyyy-MM-dd") : "",
+                });
+              }}
+              onChangeRaw={handleDateChangeRaw}
+              dateFormat="yyyy-MM-dd"
+              placeholderText="YYYY-MM-DD"
+              className="border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-indigo-600 transition"
+              showMonthDropdown
+              showYearDropdown
+              dropdownMode="select"
             />
+
             <textarea
               name="message"
               placeholder="Additional Details"
@@ -221,6 +238,7 @@ export default function ContactPage() {
               rows={4}
               className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-600 transition"
             />
+
             <button
               type="submit"
               disabled={loading}

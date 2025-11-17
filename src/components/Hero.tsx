@@ -59,7 +59,7 @@ export default function Hero() {
 
           <div className="mt-6 flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4">
             <a
-              href="/quote"
+              href="/contact"
               className="inline-flex items-center justify-center text-white font-semibold rounded-md w-full sm:w-auto px-5 py-3 text-sm sm:text-base transition-shadow shadow-md select-none"
               style={{
                 backgroundColor: "#0a2857",

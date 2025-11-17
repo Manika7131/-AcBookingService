@@ -28,6 +28,20 @@ body {
   background-color: #ffffff;
   color: #0f172a;
 }
+/* Enable manual typing in <input type="date"> on all browsers */
+input[type="date"]::-webkit-datetime-edit {
+  display: block !important;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 1 !important;
+  cursor: pointer;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-clear-button {
+  display: none !important;
+}
 
 /* ----------------------------- */
 /* ⚡ Header / Navigation        */

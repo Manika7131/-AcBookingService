@@ -11,7 +11,7 @@ const socialIcons = [
 // Contact PNG icons
 const contactIcons = [
   { src: "/icons/call.png", alt: "Call", value: "+91 88384 85805" },
-  { src: "/icons/mail.png", alt: "Mail", value: "info@skracbooking.com" },
+  { src: "/icons/mail.png", alt: "Mail", value: "support@skracservices.com" },
   { src: "/icons/clock.png", alt: "Hours", value: "Mon - Sat: 9am - 8pm" },
 ];
 

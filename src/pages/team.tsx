@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 
+
 const team = [
   { name: "Ramesh", role: "Senior Technician", img: "/assets/team/member1.png" },
   { name: "Priya", role: "Service Manager", img: "/assets/team/member2.png" }
