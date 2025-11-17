@@ -1,8 +1,9 @@
 // src/pages/_app.tsx
 import '@/styles/globals.css'
+import CallButton from "@/components/CallButton";
 import type { AppProps } from 'next/app'
 import WhatsAppButton from '@/components/WhatsAppButton'
-import CallButton from "@/components/CallButton";
+
 
 
 
@@ -12,7 +13,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Component {...pageProps} />
       <WhatsAppButton />
-      <CallButton />
+      <CallButton/>
 
     
     </>
