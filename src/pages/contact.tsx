@@ -100,7 +100,6 @@ export default function ContactPage() {
     const msg = msgLines.filter(Boolean).join("\n");
     const waUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`;
 
-    alert("Redirecting to WhatsApp...");
     window.open(waUrl, "_blank");
 
     setFormData({
