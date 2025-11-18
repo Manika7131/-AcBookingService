@@ -52,7 +52,7 @@ export default function Hero() {
               lineHeight: 1.6,
             }}
           >
-            SKR AC Booking delivers dependable, fast, and affordable cooling &
+            SKR AC SERVICES delivers dependable, fast, and affordable cooling &
             heating solutions — installation, repair, AMC, and emergency
             support. Your comfort, our priority!
           </p>

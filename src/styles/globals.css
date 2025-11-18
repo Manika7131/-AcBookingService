@@ -1,6 +1,5 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@import "tailwindcss";
+
 
 /* ----------------------------- */
 /* 🌈 CSS Variables              */
@@ -11,7 +10,7 @@
   --primary-dark: #007ACC;
   --secondary: #001064;
   --muted: #6b7280;
-  --book-complaint: #001064; /* Dark blue for Book Complaints */
+  --book-complaint: #001064;
 }
 
 /* ----------------------------- */
@@ -28,7 +27,7 @@ body {
   background-color: #ffffff;
   color: #0f172a;
 }
-/* Enable manual typing in <input type="date"> on all browsers */
+
 input[type="date"]::-webkit-datetime-edit {
   display: block !important;
 }
@@ -74,7 +73,6 @@ input[type="date"]::-webkit-clear-button {
   filter: brightness(0.95);
 }
 
-/* Book Complaints Button */
 .btn-book-complaints {
   @apply inline-block px-5 py-3 rounded-md font-semibold text-white text-center;
   background: var(--book-complaint);
@@ -175,8 +173,7 @@ input[type="date"]::-webkit-clear-button {
 
 .styled-button .inner-button .icon {
   color: #fff;
-  filter: drop-shadow(0 4px 10px rgba(0, 153, 255, 0.7))
-          drop-shadow(0 0 6px rgba(0, 153, 255, 0.9));
+  filter: drop-shadow(0 4px 10px rgba(0, 153, 255, 0.7)) drop-shadow(0 0 6px rgba(0, 153, 255, 0.9));
   transition: all 0.4s ease-in-out;
 }
 
@@ -259,38 +256,13 @@ input[type="date"]::-webkit-clear-button {
   }
 }
 
-/* Smooth hover color change for nav items */
-.nav-item {
-  transition: color 0.3s ease;
-}
-
-.nav-item:hover {
-  color: #003366; /* Dark blue on hover */
-}
-
-/* Optional: add underline animation on hover */
-.nav-item::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: #003366;
-  border-radius: 2px;
-  transition: width 0.3s ease;
-}
-
-.nav-item:hover::after {
-  width: 100%;
-}
-
-
-/* Smooth animated hover effect for nav links */
+/* ----------------------------- */
+/* ⚡ Navigation Hover Effects   */
+/* ----------------------------- */
 .nav-item {
   position: relative;
   font-weight: 600;
-  color: #374151; /* gray-700 */
+  color: #374151;
   transition: color 0.3s ease;
 }
 

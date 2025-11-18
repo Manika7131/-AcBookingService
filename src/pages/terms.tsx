@@ -27,7 +27,7 @@ export default function TermsPage() {
               1. Acceptance of Terms
             </h2>
             <p className="text-gray-600 mb-8">
-              By accessing and using the SKR AC Booking website and services, you agree
+              By accessing and using the SKR AC SERVICES website and services, you agree
               to comply with and be bound by these Terms and Conditions. If you do not
               agree with any part of these terms, you must not use our website or services.
             </p>
@@ -36,13 +36,13 @@ export default function TermsPage() {
               2. Services Overview
             </h2>
             <p className="text-gray-600 mb-8">
-              SKR AC Booking provides air conditioning installation, repair, gas refilling,
+              SKR AC SERVICES provides air conditioning installation, repair, gas refilling,
               and maintenance services through verified and trained professionals. Our goal
               is to ensure reliable, safe, and efficient service delivery to all customers.
             </p>
 
             <h2 className="text-2xl font-bold mb-6 text-[#0a2857]">
-              3. Booking and Payments
+              3. SERVICES and Payments
             </h2>
             <ul className="list-disc list-inside text-gray-600 mb-8 space-y-2">
               <li>All bookings must be made through our website or official contact channels.</li>
@@ -121,10 +121,10 @@ export default function TermsPage() {
             <p className="text-gray-600 mt-2">
               📧 <strong>Email:</strong>{" "}
               <a
-                href="mailto:support@skracbooking.com"
+                href="mailto:support@skracservices.com"
                 className="text-[#0a2857] underline"
               >
-                support@skracbooking.com
+                support@skracservices.com
               </a>
               <br />
               📞 <strong>Phone:</strong> +91 88384 85805
@@ -138,7 +138,7 @@ export default function TermsPage() {
         className="text-white py-12 text-center w-full"
         style={{ backgroundColor: "#0a2857" }}
       >
-        <h2 className="text-2xl font-bold mb-3">Thank You for Choosing SKR AC Booking</h2>
+        <h2 className="text-2xl font-bold mb-3">Thank You for Choosing SKR AC SERVICES</h2>
         <p className="text-gray-200 mb-6">
           Your trust and satisfaction are our top priorities.
         </p>

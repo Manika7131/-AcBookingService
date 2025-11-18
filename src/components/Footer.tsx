@@ -31,7 +31,7 @@ export default function Footer() {
         
         {/* Company Info */}
         <div className="col-span-1 md:col-span-1">
-          <h4 className="text-2xl font-bold mb-3 text-white">SKR AC Booking</h4>
+          <h4 className="text-2xl font-bold mb-3 text-white">SKR AC SERVICES</h4>
           <p className="text-sm leading-relaxed text-white/80">
             Reliable AC installation, repairs & AMC services across residential and
             commercial areas. Fast, trusted, and professional solutions.
@@ -121,7 +121,7 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-white/30 bg-[#0a2857]">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 md:px-16 py-4 flex flex-col sm:flex-row justify-between items-center text-xs text-white gap-3 text-center">
-          <p>© {new Date().getFullYear()} SKR AC Booking. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} SKR AC SERVICES  All rights reserved.</p>
           <div className="flex gap-4">
             <Link href="/terms" className="hover:text-[#59677c] transition-colors">Terms</Link>
             <Link href="/privacy" className="hover:text-[#59677c] transition-colors">Privacy & Policy</Link>

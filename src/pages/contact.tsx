@@ -23,6 +23,7 @@ export default function ContactPage() {
     phone: "",
     service: "",
     date: "",
+    address: "",
     message: "",
   });
 
@@ -87,12 +88,13 @@ export default function ContactPage() {
 
     const whatsappNumber = "918838485805";
     const msgLines = [
-      "New AC Booking Request:",
+      "New AC Service Request:",
       `Name: ${formData.name}`,
       `Phone: ${formData.phone}`,
       `Email: ${formData.email}`,
       `Service: ${formData.service}`,
       formData.date ? `Date: ${formData.date}` : "",
+      formData.address ? `Address: ${formData.address}` : "",
       formData.message ? `Message: ${formData.message}` : "",
     ];
     const msg = msgLines.filter(Boolean).join("\n");
@@ -107,6 +109,7 @@ export default function ContactPage() {
       phone: "",
       service: "",
       date: "",
+      address: "",
       message: "",
     });
     setSelectedDate(null);
@@ -228,6 +231,15 @@ export default function ContactPage() {
               showMonthDropdown
               showYearDropdown
               dropdownMode="select"
+            />
+
+            <textarea
+              name="address"
+              placeholder="Request Address (e.g., Door No, Building Name, Street, Locality, Landmark, Pincode)"
+              value={formData.address}
+              onChange={handleChange}
+              rows={3}
+              className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-600 transition resize-vertical"
             />
 
             <textarea

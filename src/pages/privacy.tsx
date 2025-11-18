@@ -13,12 +13,12 @@ export default function PrivacyPage() {
   const sections = [
     {
       title: "1. Introduction",
-      text: `At SKR AC Booking, your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your personal information when you visit our website or use our services.`,
+      text: `At SKR AC SERVICES, your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your personal information when you visit our website or use our services.`,
     },
     {
       title: "2. Information We Collect",
       text: `We may collect the following types of information:
-• Personal details such as name, email address, phone number, and address (when booking a service).
+• Personal details such as name, email address, phone number, and address (when SERVICES a service).
 • Technical details like IP address, browser type, and device information.
 • Any additional data you voluntarily provide through forms or feedback.`,
     },
@@ -57,7 +57,7 @@ export default function PrivacyPage() {
     {
       title: "10. Contact Us",
       text: `If you have questions about this Privacy Policy or how we handle your data, please contact us:
-📩 Email: support@skracbooking.com
+📩 Email: support@skracservices.com
 📞 Phone: +91 88384 85805`,
     },
   ];

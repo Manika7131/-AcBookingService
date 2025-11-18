@@ -12,7 +12,8 @@ export default function AboutPage() {
       <header className="bg-[#59677c] text-white py-20">
         <div className="max-w-6xl mx-auto px-6 text-center lg:text-left">
           <h1 className="text-4xl lg:text-5xl font-bold mb-4 select-none">
-            About SKR AC Booking
+            About SKR AC SERVICES
+
           </h1>
           <p className="text-lg lg:text-xl text-gray-200 max-w-2xl mx-auto lg:mx-0">
             Providing professional AC installation, repair, and maintenance services across residential and commercial clients with reliability, efficiency, and trust.
@@ -26,7 +27,7 @@ export default function AboutPage() {
           <div>
             <h2 className="text-3xl font-bold mb-4">Who We Are</h2>
             <p className="text-gray-700 mb-4">
-              SKR AC Booking has been serving customers with top-quality AC services since 2015. Our mission is to deliver reliable, affordable, and fast AC solutions with 100% customer satisfaction.
+              SKR AC SERVICES has been serving customers with top-quality AC services since 2015. Our mission is to deliver reliable, affordable, and fast AC solutions with 100% customer satisfaction.
             </p>
             <p className="text-gray-700">
               We specialize in installation, repair, maintenance, and AC shifting services for both residential and commercial clients.

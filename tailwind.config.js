@@ -6,6 +6,7 @@ module.exports = {
     "./src/pages/**/*.{js,ts,jsx,tsx}",
     "./src/components/**/*.{js,ts,jsx,tsx}",
     "./src/app/**/*.{js,ts,jsx,tsx}",
+    "./src/styles/globals.css", // ✅ ensure Tailwind scans your global CSS
   ],
   theme: {
     extend: {
@@ -20,11 +21,11 @@ module.exports = {
         sans: ["Inter", ...defaultTheme.fontFamily.sans],
       },
       spacing: {
-        15: "3.75rem", // custom spacing if needed
+        15: "3.75rem",
         18: "4.5rem",
       },
       maxHeight: {
-        15: "3.75rem", // match navbar logo
+        15: "3.75rem",
         18: "4.5rem",
       },
       transitionTimingFunction: {

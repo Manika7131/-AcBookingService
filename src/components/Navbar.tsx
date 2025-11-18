@@ -36,7 +36,7 @@ export default function Navbar() {
             draggable="false"
           />
           <span className="text-xl font-bold text-white select-none">
-            SKR AC Booking
+            SKR AC SERVICES
           </span>
         </Link>
 
