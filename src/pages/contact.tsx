@@ -42,7 +42,7 @@ export default function ContactPage() {
       const onlyLetters = value.replace(/[0-9]/g, "");
       setFormData({ ...formData, name: onlyLetters });
     } else if (name === "phone") {
-      const onlyDigits = value.replace(/\D/g, "");
+      const onlyDigits = value.replace(/\D/g, "").slice(0, 10);
       setFormData({ ...formData, phone: onlyDigits });
     } else {
       setFormData({ ...formData, [name]: value });
@@ -70,7 +70,7 @@ export default function ContactPage() {
     e.preventDefault();
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const phoneRegex = /^\d+$/;
+    const phoneRegex = /^\d{10}$/;
     const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
 
     if (
@@ -196,6 +196,7 @@ export default function ContactPage() {
               onChange={handleChange}
               required
               inputMode="numeric"
+              maxLength={10}
               className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-600 transition [appearance:textfield]"
               style={{ MozAppearance: "textfield" }}
             />
