@@ -1,12 +1,12 @@
 "use client";
 
 const services = [
-  { title: "AC Installation", icon: "/assets/team/member3.jpg" },
-  { title: "AC Repair", icon: "/assets/team/member1.jpg" },
-  { title: "Annual Maintenance", icon: "/assets/team/member4.jpg" },
-  { title: "Gas Refill", icon: "/assets/team/member2.jpg" },
-  { title: "Emergency Support", icon: "/assets/team/member5.png" },
-  { title: "Duct Cleaning", icon: "/assets/team/member6.jpg" }, // Added sixth service
+  { title: "AC Installation", icon: "/assets/team/image3.jpg" },
+  { title: "AC Repair", icon: "/assets/team/image1.jpg" },
+  { title: "Annual Maintenance", icon: "/assets/team/image4.jpg" },
+  { title: "Gas Refill", icon: "/assets/team/image2.jpg" },
+  { title: "Emergency Support", icon: "/assets/team/image5.png" },
+  { title: "Duct Cleaning", icon: "/assets/team/image6.jpg" }, // Added sixth service
 ];
 
 export default function Services() {
